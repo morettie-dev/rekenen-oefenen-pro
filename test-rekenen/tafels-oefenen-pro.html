@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2F6FED">
+  <title>Rekenen Oefenen Pro</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="container">
+  <section id="profileScreen" class="screen active">
+    <h1>🧮 REKENEN</h1><h1>OEFENEN PRO</h1>
+    <p class="subtitle">Kies een profiel en ga aan de slag.</p>
+    <div id="profileList" class="profile-list"></div>
+    <button class="btn-secondary full" onclick="showNewProfile()">＋ NIEUW PROFIEL</button>
+    <div id="newProfileBox" class="panel hidden">
+      <label for="newProfileName">Naam</label>
+      <input id="newProfileName" type="text" maxlength="24" placeholder="Vul een naam in">
+      <div class="btn-group"><button class="btn-success" onclick="createProfile()">OPSLAAN</button><button class="btn-muted" onclick="hideNewProfile()">ANNULEREN</button></div>
+    </div>
+  </section>
+
+  <section id="menuScreen" class="screen">
+    <div class="topbar"><strong id="welcomeName"></strong><button class="small-btn" onclick="showProfiles()">Wissel profiel</button></div>
+    <h1>🧮 REKENEN OEFENEN PRO</h1>
+    <p class="subtitle">Kies wat je wilt oefenen.</p>
+    <h2 class="centered-title">Wat wil je oefenen?</h2>
+    <div class="mode-grid">
+      <button class="mode-btn" data-mode="multiplication" onclick="selectMode('multiplication')">✖<span>Tafels</span></button>
+      <button class="mode-btn" data-mode="division" onclick="selectMode('division')">➗<span>Deelsommen</span></button>
+      <button class="mode-btn" data-mode="mixed" onclick="selectMode('mixed')">🔀<span>Door elkaar</span></button>
+    </div>
+    <div class="options-row"><label class="toggle"><input type="checkbox" id="mute"><span>Geluid uit</span></label></div>
+    <h2 class="centered-title">Welke tafels wil je oefenen?</h2>
+    <div class="btn-group"><button class="btn-muted" onclick="selectAll()">Alles selecteren</button><button class="btn-muted" onclick="deselectAll()">Selectie wissen</button></div>
+    <div class="table-grid" id="tableGrid"></div>
+    <h2 class="centered-title">Hoe wil je oefenen?</h2>
+    <div class="action-grid">
+      <button class="btn-secondary" onclick="startRegular(20)">⚡ KORT<br><small>20 sommen</small></button>
+      <button class="btn-primary" onclick="startRegular(40)">🔥 LANG<br><small>40 sommen</small></button>
+      <button class="btn-primary" onclick="startSystematic()">🧩 SYSTEMATISCH<br><small>alle combinaties</small></button>
+      <button id="hardBtn" class="btn-success" onclick="startHard()">↺ LASTIGE SOMMEN</button>
+    </div>
+    <p id="menuMessage" class="message-box">Kies minimaal één tafel.</p>
+    <div class="profile-actions"><button class="text-btn" onclick="renameCurrentProfile()">Profiel hernoemen</button><button class="text-btn danger" onclick="deleteCurrentProfile()">Profiel verwijderen</button></div>
+  </section>
+
+  <section id="quizScreen" class="screen">
+    <div class="topbar"><div class="userline"><span id="quizName"></span><span id="scoreDisplay">📊 0 goed</span></div></div>
+    <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+    <div class="question-display"><div class="question-number">Vraag <span id="questionNumber">1</span> / <span id="totalQuestions">20</span></div><div id="question" class="question"></div></div>
+    <div class="answer-input-group"><input id="answerInput" type="number" inputmode="numeric" placeholder="Typ je antwoord"><button id="checkBtn" class="btn-success full" onclick="checkAnswer()">✔ CONTROLEER</button></div>
+    <div id="feedback"></div>
+    <button class="btn-muted full" onclick="goMenu()">← Stoppen en terug</button>
+  </section>
+
+  <section id="resultsScreen" class="screen results-screen">
+    <h1>KLAAR! 🎉</h1><div id="resultEmoji" class="emoji">⭐</div><p id="resultMessage" class="result-message"></p>
+    <div id="scoreResult" class="score-display">0/20</div>
+    <div class="stats"><div class="stat"><div id="correctCount" class="stat-value">0</div><div class="stat-label">Goed</div></div><div class="stat"><div id="incorrectCount" class="stat-value">0</div><div class="stat-label">Fout</div></div><div class="stat"><div id="percentage" class="stat-value">0%</div><div class="stat-label">Score</div></div></div>
+    <div id="operationBreakdown"></div><div id="tablesBreakdown"></div>
+    <div class="result-actions"><button id="wrongsBtn" class="btn-success" onclick="practiceWrongs()">↺ OEFEN DE FOUTEN</button><button class="btn-primary" onclick="playAgain()">🔄 OPNIEUW</button><button class="btn-secondary" onclick="goMenu()">🏠 TERUG NAAR MENU</button></div>
+  </section>
+</main>
+<script src="app.js" defer></script>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});</script>
+</body></html>
