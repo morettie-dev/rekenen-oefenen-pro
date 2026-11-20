@@ -1,8 +1,7 @@
-Tafels Oefenen Pro — PWA pakket
-=====================================
+Rekenen Oefenen Pro v1.0
+==========================
 
-Inhoud
-------
+Bestanden
 - tafels-oefenen-pro.html
 - style.css
 - app.js
@@ -10,27 +9,19 @@ Inhoud
 - sw.js
 - icon-192.png
 - icon-512.png
-- ok.wav
-- no.wav
+- ok.wav (bestaand geluidsbestand zelf toevoegen)
+- no.wav (bestaand geluidsbestand zelf toevoegen)
 
-Installatie (lokaal testen)
----------------------------
-1. Plaats alle bestanden in dezelfde map.
-2. Start een lokale webserver (BELANGRIJK: service workers werken niet vanaf file://).
-   - Python 3: open een terminal in de map en voer uit:
-     * Windows/macOS/Linux: `python -m http.server 8080`
-   - Ga naar: http://localhost:8080/tafels-oefenen-pro.html
+Belangrijk
+De HTML-bestandsnaam is bewust behouden, zodat de bestaande GitHub Pages-link en PWA-start-URL blijven werken.
+De app migreert de oude naam, geselecteerde tafels en lastige tafelsommen automatisch naar het eerste profiel.
 
-Publiceren (aanbevolen)
------------------------
-1. Publiceer de map op een HTTPS-domein (GitHub Pages, Netlify, Vercel, …).
-2. Open de URL op de Android-tablet van Daley in **Chrome**.
-3. Kies **⋮ → Installeren** (of **Toevoegen aan startscherm**).
-4. De app staat nu als icoon op het beginscherm en werkt offline.
+Testen
+1. Plaats ook de bestaande ok.wav en no.wav in dezelfde map.
+2. Start lokaal met: python -m http.server 8080
+3. Open: http://localhost:8080/tafels-oefenen-pro.html
+4. Test eerst in een gewoon browsertabblad.
+5. Publiceer daarna de bestanden op GitHub Pages.
 
-Optioneel
----------
-- `ROBLOX_USER_ID` in `app.js` op een numerieke userId zetten om de avatar te tonen.
-- Geluid uitzetten kan via de checkbox "Geluid uit?" in het welkomstscherm.
-
-Veel plezier! 🎉
+Bij een oude PWA-versie
+De cache heet nu rekenen-oefenen-pro-v1. Na publicatie de pagina eenmaal vernieuwen. Als de geinstalleerde PWA oud blijft, sluit de app volledig en open opnieuw. Alleen indien nodig de PWA opnieuw installeren.

@@ -1,12 +1,22 @@
 {
-  "name": "Tafels Oefenen Pro",
-  "short_name": "Tafels",
+  "name": "Rekenen Oefenen Pro",
+  "short_name": "Rekenen Pro",
   "start_url": "./tafels-oefenen-pro.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#1D1E1F",
-  "theme_color": "#E2231A",
+  "background_color": "#18202A",
+  "theme_color": "#2F6FED",
+  "description": "Oefen tafels en deelsommen, apart of door elkaar.",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }
