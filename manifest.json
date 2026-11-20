@@ -1,7 +1,7 @@
 {
   "name": "Rekenen Oefenen Pro",
   "short_name": "Rekenen Pro",
-  "start_url": "./tafels-oefenen-pro.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#18202A",
